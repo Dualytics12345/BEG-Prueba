@@ -65,20 +65,148 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
-
-      <div class="container">
+      <!-- Carrusel mejorado -->
+      <div class="hero-carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/img/hero-carousel-1.jpg" alt="Equidad de género 1" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/hero-carousel-2.jpg" alt="Equidad de género 2" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/hero-carousel-3.jpg" alt="Equidad de género 3" class="d-block w-100">
+          </div>
+        </div>
+      </div>
+    
+      <!-- Contenido centrado -->
+      <div class="container hero-content">
         <h2 data-aos="fade-up" data-aos-delay="100">Buro de Equidad de Género.</h2>
         <p data-aos="fade-up" data-aos-delay="200">Aprendizajes que suman a tu vida Laboral.</p>
-        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="300">
           <a href="courses.html" class="btn-get-started">Comenzar</a>
         </div>
       </div>
-
-    </section><!-- /Hero Section -->
+    
+    </section>
+    
+    <style>
+      .hero {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+      
+      .hero-carousel {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      
+      .carousel-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      .carousel-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+      
+      .carousel-item.active {
+        opacity: 1;
+        z-index: 1;
+      }
+      
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+      
+      .btn-get-started {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #ff6b6b;
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-get-started:hover {
+        background-color: #ff5252;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const items = document.querySelectorAll('.carousel-item');
+      let currentItem = 0;
+      let isTransitioning = false;
+      const transitionDuration = 1000; // 1 segundo
+      
+      function showNextItem() {
+        if (isTransitioning) return;
+        
+        isTransitioning = true;
+        
+        // Oculta el item actual
+        items[currentItem].classList.remove('active');
+        
+        // Avanza al siguiente item
+        currentItem = (currentItem + 1) % items.length;
+        
+        // Muestra el nuevo item
+        items[currentItem].classList.add('active');
+        
+        // Restablece después de la transición
+        setTimeout(() => {
+          isTransitioning = false;
+        }, transitionDuration);
+      }
+      
+      // Inicia el carrusel
+      items[0].classList.add('active');
+      
+      // Configura el intervalo (cada 5 segundos)
+      let interval = setInterval(showNextItem, 5000);
+      
+      // Pausa al hacer hover (opcional)
+      const hero = document.querySelector('.hero');
+      hero.addEventListener('mouseenter', () => clearInterval(interval));
+      hero.addEventListener('mouseleave', () => {
+        interval = setInterval(showNextItem, 5000);
+      });
+    });
+    </script>
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -94,7 +222,7 @@
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
             <h3>¿QUIENES SOMOS?</h3>
             <p class="fst-italic">
-              Somos una sociedad enfocada en el desarrollo de equidad de género, esto a través de fomentar el aprendizaje en hombres y mujeres económicamente activos, la capacitación y adiestramiento en este importante tema es por medio de instituciones y asociaciones especializadas en equidad.
+              Somos una organización especializada en promover la equidad de género, facilitando espacios de aprendizaje y conexión para profesionales económicamente activos. Nuestro modelo se basa en vincular a hombres y mujeres con instituciones y asociaciones expertas en formación sobre igualdad de género.
             </p>
             <p class="fst-italic">Los ingresos remanentes obtenidos por BEG, son enfocados en capacitar comunidades rurales en temas de equidad de género entre otros, los recursos y acciones para este fin son revisados y evaluados por un Comité de capacitación en comunidades rurales.</p>
             <ul>
