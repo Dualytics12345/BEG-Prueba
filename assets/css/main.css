@@ -140,6 +140,23 @@
   visibility: visible;
   opacity: 1;
 }
+/* Animación suave para el despliegue */
+.collapsing {
+  transition: height 0.3s ease;
+}
+
+/* Estilo para la tarjeta de descripción */
+.service-item .card-body {
+  border-radius: 0 0 8px 8px;
+  border-top: 3px solid #0dcaf0;
+}
+
+/* Efecto hover */
+.service-item:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
