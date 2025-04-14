@@ -239,6 +239,8 @@ h6 {
   }
 }
 
+
+
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
@@ -256,8 +258,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 160px;  /* Ajusta el tamaño a lo que desees */
-  width: auto;        /* Mantén la proporción original de la imagen */
+  max-height: 36px;
   margin-right: 14px;
 }
 
@@ -565,6 +566,29 @@ h6 {
 .footer .footer-top {
   padding-top: 50px;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+.footer .footer-top {
+  text-align: center;
+}
+
+.footer .footer-about,
+.footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .footer-links ul li a {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.footer .footer-links ul li a:hover {
+  color: var(--accent-color);
+}
+
+.footer .social-links a {
+  margin: 0 8px;
 }
 
 .footer .footer-about .logo {
