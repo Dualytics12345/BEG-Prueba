@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Consulta de Certificados - Buro de Equidad de Género</title>
+  <meta name="description" content="Base de datos de las personas que cuentan con certificado BEG vigente.">
+  <meta name="keywords" content="consulta certificado, base de datos BEG, verifación certificado equidad de género">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .search-card {
+      border-radius: 20px;
+      border: 1px solid rgba(191, 147, 184, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      background: #ffffff;
+    }
+    .btn-beg {
+      background-color: #BF93B8;
+      color: white;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-beg:hover {
+      background-color: #a879a1;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(191, 147, 184, 0.4);
+    }
+    .result-card {
+      border: 2px solid #28a745;
+      border-radius: 16px;
+      background-color: #f8fff9;
+    }
+    .badge-vigente {
+      background-color: #28a745;
+      color: white;
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <span style="font-size: 7px;">
+          <h5 style="color: #BF93B8; margin: 0;">Buro de Equidad de Género.</h5>  
+        </span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Quienes somos</a></li>
+          <li><a href="capacitacion.html">Capacitación sin costo</a></li>
+          <li><a href="certificacion.html">Certificación BEG</a></li>
+          <li><a href="consulta.html" class="active"><span>Consulta</span></a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>  
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title accent-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Consulta de Certificados</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="current">Consulta</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Main Consulta Section -->
+    <section id="consulta" class="section py-5">
+      <div class="container">
+
+        <!-- Encabezado de la seccion -->
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="badge bg-light text-dark px-3 py-2 rounded-pill fw-semibold border mb-2">
+            <i class="bi bi-database-check me-1 text-success"></i> SISTEMA DE VERIFICACIÓN
+          </span>
+          <h2 class="fw-bold display-6 mt-2" style="color: #2c3e50;">
+            Base de datos de las personas que cuentan con certificado BEG vigente.
+          </h2>
+          <p class="text-muted max-width-700 mx-auto fs-5">
+            Aquí solo se ingresan los datos de la persona para consultar si cuenta con un certificado BEG vigente.
+          </p>
+        </div>
+
+        <!-- Formulario de Consulta -->
+        <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-8">
+            <div class="search-card p-4 p-md-5">
+              <h4 class="fw-bold mb-4 text-center" style="color: #333;">
+                <i class="bi bi-search me-2" style="color: #BF93B8;"></i>Consulta de Estatus de Certificación
+              </h4>
+
+              <form id="searchCertificateForm">
+                <div class="row g-3">
+                  <div class="col-md-7">
+                    <label for="searchInput" class="form-label fw-semibold">Nombre de la Persona o Folio de Certificado:</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="searchInput" placeholder="Ej. María Rodríguez López o BEG-2025-0142" required>
+                  </div>
+                  <div class="col-md-5">
+                    <label for="curpInput" class="form-label fw-semibold">CURP o Cédula (Opcional):</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="curpInput" placeholder="Ej. ROLM920514...">
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn-beg btn-lg px-5">
+                      <i class="bi bi-search"></i> Consultar Certificado
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultado de la Consulta -->
+        <div class="row justify-content-center d-none" id="resultSection">
+          <div class="col-lg-8">
+            <div class="result-card p-4 p-md-5 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge-vigente"><i class="bi bi-patch-check-fill me-1"></i> CERTIFICADO VIGENTE</span>
+                <span class="text-muted small" id="searchTimestamp">Consultado hoy</span>
+              </div>
+
+              <h3 class="fw-bold mb-1" id="resName" style="color: #2c3e50;">María Rodríguez López</h3>
+              <p class="text-muted mb-4" id="resCourse">Certificación en Desarrollo de Conciencia en Equidad e Igualdad de Género</p>
+
+              <div class="row border-top pt-3 g-3">
+                <div class="col-sm-6">
+                  <span class="d-block text-muted small fw-semibold">FOLIO DE REGISTRO:</span>
+                  <span class="fs-5 fw-bold text-dark" id="resFolio">BEG-2025-0842</span>
+                </div>
+                <div class="col-sm-6">
+                  <span class="d-block text-muted small fw-semibold">ESTATUS ACTUAL:</span>
+                  <span class="fs-5 fw-bold text-success"><i class="bi bi-shield-fill-check me-1"></i>VIGENTE</span>
+                </div>
+                <div class="col-sm-6">
+                  <span class="d-block text-muted small fw-semibold">FECHA DE EMISIÓN:</span>
+                  <span class="fw-semibold text-secondary" id="resDate">12 de Enero de 2025</span>
+                </div>
+                <div class="col-sm-6">
+                  <span class="d-block text-muted small fw-semibold">ORGANISMO EMISOR:</span>
+                  <span class="fw-semibold text-secondary">Buró de Equidad de Género A.C.</span>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-top text-end">
+                <button class="btn btn-outline-secondary btn-sm rounded-pill" onclick="window.print()">
+                  <i class="bi bi-printer me-1"></i> Imprimir Constancia
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row justify-content-center text-center">
+        <!-- Parte Izquierda -->
+        <div class="col-lg-6 footer-about">
+          <a href="index.html" class="logo d-flex justify-content-center align-items-center mb-3">
+            <span class="sitename">Buro de Equidad de Género</span>
+          </a>
+          <div class="footer-contact pt-2">
+            <p><strong>Correo:</strong> <span>info@beg.com</span></p>
+          </div>
+          <div class="social-links d-flex justify-content-center mt-4">
+            <a href="#" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+    
+        <!-- Parte Derecha -->
+        <div class="col-lg-6 footer-links mt-4 mt-lg-0">
+          <h4>Enlaces útiles</h4>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Quienes somos</a></li>
+            <li><a href="capacitacion.html">Capacitación sin costo</a></li>
+            <li><a href="certificacion.html">Certificación BEG</a></li>
+            <li><a href="consulta.html">Consulta</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Buro de Equidad de Género</strong> <span>Todos los derechos reservados</span></p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.getElementById('searchCertificateForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.trim();
+      if (!query) return;
+
+      document.getElementById('resName').innerText = query.length > 3 ? query : "María Rodríguez López";
+      const randomFolio = "BEG-2025-" + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('resFolio').innerText = query.toUpperCase().startsWith("BEG") ? query.toUpperCase() : randomFolio;
+      
+      const now = new Date();
+      document.getElementById('searchTimestamp').innerText = "Consultado: " + now.toLocaleTimeString();
+
+      const resultSection = document.getElementById('resultSection');
+      resultSection.classList.remove('d-none');
+      resultSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+
+</html>
