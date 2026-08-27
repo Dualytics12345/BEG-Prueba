@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Mini Curso: Programación y Diseño Web Incluyente — Buró de Equidad de Género</title>
+  <meta name="description" content="Aprende desarrollo web incluyente, accesibilidad WCAG y UX universal en este mini curso interactivo.">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .classroom-sidebar {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+    .module-item {
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+      color: #495057;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .module-item:hover, .module-item.active {
+      background: rgba(191, 147, 184, 0.15);
+      color: #8c5b85;
+      font-weight: 700;
+    }
+    .module-item.completed {
+      border-left: 4px solid #28a745;
+    }
+    .video-container {
+      background: #1e1e24;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .btn-beg-primary {
+      background-color: #BF93B8;
+      border-color: #BF93B8;
+      color: white;
+      font-weight: 600;
+    }
+    .btn-beg-primary:hover {
+      background-color: #a6779e;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <span style="font-size: 7px;">
+          <h5 style="color: #BF93B8; margin: 0;">Buró de Equidad de Género.</h5>
+        </span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Quienes somos</a></li>
+          <li><a href="capacitacion.html">Capacitación sin costo</a></li>
+          <li><a href="certificacion.html">Certificación BEG</a></li>
+          <li><a href="consulta.html">Consulta</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title accent-background py-4">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <div>
+          <span class="badge bg-light text-dark mb-2">Mini Curso Gratuito Demo</span>
+          <h1 class="mb-0 fw-bold">Programación y Diseño Web Incluyente</h1>
+        </div>
+        <nav class="breadcrumbs mt-3 mt-lg-0">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#courses">Cursos</a></li>
+            <li class="current">Web Incluyente</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Classroom Container -->
+    <section class="section py-5 bg-light">
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- Sidebar Módulos -->
+          <div class="col-lg-4">
+            <div class="classroom-sidebar">
+              <h5 class="fw-bold text-dark mb-3"><i class="bi bi-journal-bookmark-fill me-2 text-primary" style="color: #BF93B8 !important;"></i> Módulos del Curso</h5>
+              
+              <!-- Progreso -->
+              <div class="mb-4">
+                <div class="d-flex justify-content-between small fw-bold text-muted mb-1">
+                  <span>Tu Progreso:</span>
+                  <span id="overallProgressText">25%</span>
+                </div>
+                <div class="progress" style="height: 10px; border-radius: 20px;">
+                  <div class="progress-bar" id="overallProgressBar" style="width: 25%; background-color: #BF93B8;"></div>
+                </div>
+              </div>
+
+              <!-- Lista de Lecciones -->
+              <div id="moduleList">
+                <div class="module-item active" onclick="loadModule(1)">
+                  <span><i class="bi bi-play-circle me-2"></i> 1. Fundamentos Accesibilidad</span>
+                  <i class="bi bi-check-circle-fill text-success" id="checkM1"></i>
+                </div>
+                <div class="module-item" onclick="loadModule(2)">
+                  <span><i class="bi bi-file-text me-2"></i> 2. Estándares WCAG & UX</span>
+                  <i class="bi bi-circle text-muted" id="checkM2"></i>
+                </div>
+                <div class="module-item" onclick="loadModule(3)">
+                  <span><i class="bi bi-question-circle me-2"></i> 3. Evaluación / Quiz</span>
+                  <i class="bi bi-circle text-muted" id="checkM3"></i>
+                </div>
+                <div class="module-item" onclick="loadModule(4)">
+                  <span><i class="bi bi-award me-2"></i> 4. Certificado Digital</span>
+                  <i class="bi bi-circle text-muted" id="checkM4"></i>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <div class="p-3 rounded-3 bg-white border text-center">
+                <h6 class="fw-bold text-dark mb-2">¿Te gustó el Mini Curso?</h6>
+                <p class="small text-muted mb-3">Obtén acceso al Curso Profesional Completo con asesoría directa.</p>
+                <a href="index.html#courses" class="btn btn-beg-primary w-100 rounded-pill">
+                  Inscribirse por $499 MXN
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+              
+              <!-- MODULO 1: Fundamentos -->
+              <div id="contentModule1">
+                <span class="badge bg-secondary mb-2">Módulo 1</span>
+                <h3 class="fw-bold text-dark mb-3">Fundamentos de Accesibilidad y Diseño Incluyente</h3>
+                
+                <div class="video-container mb-4">
+                  <div class="text-center p-4">
+                    <i class="bi bi-play-circle-fill display-1 text-primary cursor-pointer mb-2 d-block" onclick="playLessonVideo()" style="color: #BF93B8 !important; cursor: pointer;"></i>
+                    <h5 class="fw-bold mb-1">Clase en Video: Principios de Maquetación Universal</h5>
+                    <p class="small text-white-50 mb-0">Duración: 05:20 min — Haz clic para reproducir la demostración</p>
+                  </div>
+                </div>
+
+                <h5 class="fw-bold text-dark">Puntos Clave de la Lección</h5>
+                <p class="text-muted">
+                  La accesibilidad web no es una característica opcional, sino una responsabilidad ética y técnica. Diseñar páginas web incluyentes garantiza que personas con diversas capacidades (visuales, auditivas, motoras o cognitivas) naveguen de forma autónoma.
+                </p>
+
+                <div class="row gy-3 mb-4">
+                  <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-3 border-start border-4 border-primary" style="border-color: #BF93B8 !important;">
+                      <h6 class="fw-bold mb-1"><i class="bi bi-eye-fill me-1 text-primary"></i> Contraste Visual</h6>
+                      <p class="small text-muted mb-0">Asegura una relación de contraste mínima de 4.5:1 entre el texto y el fondo.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-3 border-start border-4 border-success">
+                      <h6 class="fw-bold mb-1"><i class="bi bi-keyboard-fill me-1 text-success"></i> Navegación por Teclado</h6>
+                      <p class="small text-muted mb-0">Todos los elementos interactivos deben ser accesibles mediante la tecla TAB.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-beg-primary rounded-pill px-4" onclick="loadModule(2)">
+                    Siguiente Lección <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MODULO 2: WCAG -->
+              <div id="contentModule2" style="display: none;">
+                <span class="badge bg-secondary mb-2">Módulo 2</span>
+                <h3 class="fw-bold text-dark mb-3">Estándares WCAG y Semántica HTML5</h3>
+                
+                <p class="lead text-muted mb-4">
+                  El uso correcto de etiquetas semánticas (`&lt;header&gt;`, `&lt;main&gt;`, `&lt;nav&gt;`, `&lt;article&gt;`, `&lt;button&gt;`) ayuda a los lectores de pantalla a estructurar la información para usuarios con discapacidad visual.
+                </p>
+
+                <div class="p-3 bg-dark text-white font-monospace rounded-3 mb-4 small">
+                  <code>
+                    &lt;!-- Buenas Prácticas de Accesibilidad --&gt;<br>
+                    &lt;button aria-label="Cerrar ventana principal"&gt;&lt;i class="bi bi-x"&gt;&lt;/i&gt;&lt;/button&gt;<br>
+                    &lt;img src="equidad.jpg" alt="Integrantes del Buró colaborando en un entorno de trabajo incluyente"&gt;
+                  </code>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-outline-secondary rounded-pill" onclick="loadModule(1)">
+                    <i class="bi bi-arrow-left me-1"></i> Anterior
+                  </button>
+                  <button class="btn btn-beg-primary rounded-pill px-4" onclick="loadModule(3)">
+                    Ir al Quiz <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MODULO 3: Quiz -->
+              <div id="contentModule3" style="display: none;">
+                <span class="badge bg-warning text-dark mb-2">Módulo 3</span>
+                <h3 class="fw-bold text-dark mb-3">Evaluación Interactiva</h3>
+                
+                <div class="card bg-light border-0 p-4 mb-4">
+                  <h6 class="fw-bold text-dark mb-3">Pregunta: ¿Por qué es fundamental utilizar la propiedad `alt` en las imágenes web?</h6>
+                  
+                  <div class="d-grid gap-2 mb-3" id="webQuizOptions">
+                    <button class="btn btn-outline-secondary text-start p-3 rounded-3" onclick="answerWebQuiz(this, false)">
+                      A) Para que las imágenes carguen más rápido en conexiones lentas.
+                    </button>
+                    <button class="btn btn-outline-secondary text-start p-3 rounded-3" onclick="answerWebQuiz(this, true)">
+                      B) Para describir el contenido de la imagen a usuarios que utilizan lectores de pantalla por discapacidad visual.
+                    </button>
+                    <button class="btn btn-outline-secondary text-start p-3 rounded-3" onclick="answerWebQuiz(this, false)">
+                      C) Solamente sirve para cambiar el color de la imagen.
+                    </button>
+                  </div>
+
+                  <div id="webQuizFeedback" class="p-3 rounded-3" style="display: none;"></div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-outline-secondary rounded-pill" onclick="loadModule(2)">
+                    <i class="bi bi-arrow-left me-1"></i> Anterior
+                  </button>
+                  <button class="btn btn-success rounded-pill px-4" id="btnWebCert" disabled onclick="loadModule(4)">
+                    Obtener Certificado <i class="bi bi-award ms-1"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MODULO 4: Certificado -->
+              <div id="contentModule4" style="display: none;">
+                <span class="badge bg-success mb-2">Módulo 4</span>
+                <h3 class="fw-bold text-dark mb-3">Tu Certificado de Participación</h3>
+
+                <div class="certificate-box mb-4">
+                  <div class="certificate-seal">
+                    <i class="bi bi-patch-check-fill"></i>
+                  </div>
+                  <h4 class="certificate-title mb-1">Buró de Equidad de Género</h4>
+                  <p class="text-uppercase text-muted fw-bold small mb-3">Reconocimiento Digital de Aprendizaje</p>
+                  <p class="mb-1 text-muted">Otorgado a:</p>
+                  
+                  <div class="row justify-content-center mb-3">
+                    <div class="col-md-8">
+                      <input type="text" class="form-control text-center fw-bold fs-4 border-0 border-bottom rounded-0" id="webStudentName" value="Participante Destacado" placeholder="Tu Nombre Aquí">
+                    </div>
+                  </div>
+
+                  <p class="text-muted small max-width-600 mx-auto mb-3">
+                    Por haber concluido satisfactoriamente la lección interactiva de:
+                  </p>
+                  <h5 class="fw-bold text-primary mb-3" style="color: #BF93B8 !important;">
+                    Programación y Diseño Web Incluyente
+                  </h5>
+
+                  <div class="row mt-4 pt-3 border-top small text-muted">
+                    <div class="col-6">
+                      <p class="mb-0"><strong>Fecha de Emisión:</strong> <span id="webCertDate">27/08/2026</span></p>
+                    </div>
+                    <div class="col-6">
+                      <p class="mb-0"><strong>Folio:</strong> BEG-WEB-2026-981</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center gap-2">
+                  <button class="btn btn-outline-secondary rounded-pill px-4" onclick="loadModule(3)">Repasar Quiz</button>
+                  <button class="btn btn-beg-primary rounded-pill px-4" onclick="window.print()">
+                    <i class="bi bi-printer-fill me-1"></i> Imprimir / Guardar PDF
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer dark-background">
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Buró de Equidad de Género</strong> <span>Todos los derechos reservados</span></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function loadModule(modNum) {
+      document.querySelectorAll('#moduleList .module-item').forEach((item, idx) => {
+        item.classList.remove('active');
+        if (idx === modNum - 1) item.classList.add('active');
+      });
+
+      document.getElementById('contentModule1').style.display = modNum === 1 ? 'block' : 'none';
+      document.getElementById('contentModule2').style.display = modNum === 2 ? 'block' : 'none';
+      document.getElementById('contentModule3').style.display = modNum === 3 ? 'block' : 'none';
+      document.getElementById('contentModule4').style.display = modNum === 4 ? 'block' : 'none';
+
+      const progress = (modNum / 4) * 100;
+      document.getElementById('overallProgressText').innerText = progress + '%';
+      document.getElementById('overallProgressBar').style.width = progress + '%';
+
+      if (modNum === 4) {
+        const today = new Date();
+        document.getElementById('webCertDate').innerText = today.toLocaleDateString('es-MX');
+      }
+    }
+
+    function playLessonVideo() {
+      alert("▶️ Reproduciendo video explicativo: Principios de Maquetación Web Incluyente.");
+    }
+
+    function answerWebQuiz(button, isCorrect) {
+      const feedback = document.getElementById('webQuizFeedback');
+      const btnCert = document.getElementById('btnWebCert');
+
+      document.querySelectorAll('#webQuizOptions button').forEach(b => {
+        b.classList.remove('btn-success', 'btn-danger', 'btn-outline-secondary');
+        b.classList.add('btn-outline-secondary');
+      });
+
+      if (isCorrect) {
+        button.classList.remove('btn-outline-secondary');
+        button.classList.add('btn-success');
+        feedback.className = 'p-3 rounded-3 alert alert-success mb-0';
+        feedback.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i> <strong>¡Excelente!</strong> La propiedad `alt` proporciona una descripción textual para los usuarios que navegan con tecnología de asistencia.';
+        feedback.style.display = 'block';
+        btnCert.disabled = false;
+      } else {
+        button.classList.remove('btn-outline-secondary');
+        button.classList.add('btn-danger');
+        feedback.className = 'p-3 rounded-3 alert alert-danger mb-0';
+        feedback.innerHTML = '<i class="bi bi-x-circle-fill me-1"></i> <strong>Incorrecto.</strong> Vuelve a intentar seleccionando la opción orientada a lectores de pantalla.';
+        feedback.style.display = 'block';
+        btnCert.disabled = true;
+      }
+    }
+  </script>
+</body>
+
+</html>
